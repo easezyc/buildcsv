@@ -1,0 +1,73 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>图表</title>
+	{% load staticfiles %}
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/uploadify/uploadify.css" rel="stylesheet">
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <script src="/static/uploadify/jquery.uploadify.js"></script>
+    <script type="text/javascript">
+    var backnews="fail";
+        $(document).ready(function()
+        {
+            $('#uploadify').uploadify( {
+            'swf' : '/static/uploadify/uploadify.swf',//上传按钮的图片，默认是这个flash文件
+            'uploader' : "/add/",//上传所处理的服务器
+            'folder' : '/static/images/users',//上传后，所保存文件的路径
+            'queueID' : 'fileQueue',//上传显示进度条的那个div
+            'buttonText' : '请选择文件',
+            //'onUploadComplete': function(file){alert('The file'+file.name+'finished processing!')},//每个文件上传成功后的函数
+            progressData : 'percentage',
+            'auto' : true,
+            'multi' : true,
+            'onUploadSuccess' : function(arg0,data,arg2) {
+                       var jsonData = JSON.parse(data);
+                       console.log(jsonData);
+                    },
+            'onDisable' : function() {
+                alert('uploadify is disable');
+            },
+            'onError' : function(errorType,errObj) {
+                alert('The error was: ' + errObj.info)
+            }
+             
+
+        });
+        $('#uploadify').uploadifySettings('scriptData',{'name':'aaa'});
+        });  
+    </script>
+    <style>
+    	.upload-container{
+    		margin-top:100px;
+    	}
+    	.input-container{
+    		min-height:300px;
+    	}
+    	.thumbnail img{
+    	height:200px;
+    	}
+    </style>
+  </head>
+  
+  <body>
+  	<div class="container upload-container">
+    	<div class="row input-container">
+    		<div class="col-sm-6 col-sm-offset-4">
+    		<span>选择表格</span>
+    		<input type="file" name="uploadify" id="uploadify"/>   	
+    		<p>
+      		<div id="fileQueue"></div>
+   			</p>
+   			</div>
+   		</div>
+   		<div class="row img-container">
+   			
+   		</div>
+   	</div>
+  </body>
+</html>
