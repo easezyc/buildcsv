@@ -1,100 +1,14 @@
-订单日期,市场类别,区域,产品类别,产品名称,预计销售成本,预计毛利,预计利润,预计销售额,销售成本,存货,毛利,利润额,销售额
-2010/1/1 0:00,Major Market,Central,一般咖啡,Amaretto,90 ,130 ,100 ,220 ,89 ,777 ,130 ,94 ,219 
-2010/1/1 0:00,Major Market,Central,一般咖啡,Columbian,80 ,110 ,80 ,190 ,83 ,623 ,107 ,68 ,190 
-2010/1/1 0:00,Major Market,Central,一般咖啡,Decaf Irish Cream,100 ,140 ,110 ,240 ,95 ,821 ,139 ,101 ,234 
-2010/1/1 0:00,Major Market,Central,普茶,Green Tea,30 ,50 ,30 ,80 ,44 ,623 ,56 ,30 ,100 
-2010/1/1 0:00,Major Market,Central,Espresso,Caffe Mocha,60 ,90 ,70 ,150 ,54 ,456 ,80 ,54 ,134 
-2010/1/1 0:00,Major Market,Central,Espresso,Decaf Espresso,80 ,130 ,80 ,210 ,72 ,558 ,108 ,53 ,180 
-2010/1/1 0:00,Major Market,Central,清凉茶,Chamomile,140 ,160 ,110 ,300 ,170 ,"1,091 ",171 ,99 ,341 
-2010/1/1 0:00,Major Market,Central,清凉茶,Lemon,50 ,80 ,20 ,130 ,63 ,435 ,87 ,0 ,150 
-2010/1/1 0:00,Major Market,Central,清凉茶,Mint,50 ,70 ,40 ,120 ,60 ,336 ,80 ,33 ,140 
-2010/1/1 0:00,Major Market,Central,普茶,Darjeeling,40 ,70 ,20 ,110 ,58 ,338 ,72 ,17 ,130 
-2010/1/1 0:00,Major Market,Central,普茶,Earl Grey,50 ,70 ,40 ,120 ,64 ,965 ,76 ,36 ,140 
-2010/1/1 0:00,Major Market,Central,一般咖啡,Columbian,150 ,210 ,130 ,360 ,144 ,862 ,201 ,111 ,345 
-2010/1/1 0:00,Major Market,Central,一般咖啡,Decaf Irish Cream,100 ,140 ,100 ,240 ,95 ,608 ,139 ,87 ,234 
-2010/1/1 0:00,Major Market,Central,Espresso,Caffe Mocha,270 ,370 ,260 ,640 ,234 ,"1,310 ",312 ,203 ,546 
-2010/1/1 0:00,Major Market,Central,Espresso,Decaf Espresso,260 ,270 ,180 ,530 ,228 ,"1,459 ",228 ,140 ,456 
-2010/1/1 0:00,Major Market,Central,清凉茶,Chamomile,70 ,120 ,100 ,190 ,89 ,777 ,130 ,95 ,219 
-2010/1/1 0:00,Major Market,Central,清凉茶,Lemon,70 ,90 ,60 ,160 ,83 ,623 ,107 ,68 ,190 
-2010/1/1 0:00,Major Market,Central,清凉茶,Mint,80 ,120 ,100 ,200 ,95 ,821 ,139 ,101 ,234 
-2010/1/1 0:00,Major Market,Central,普茶,Darjeeling,40 ,70 ,50 ,110 ,54 ,456 ,80 ,53 ,134 
-2010/1/1 0:00,Major Market,Central,普茶,Earl Grey,60 ,90 ,40 ,150 ,72 ,558 ,108 ,54 ,180 
-2010/1/1 0:00,Small Market,Central,一般咖啡,Amaretto,10 ,30 ,20 ,40 ,18 ,821 ,27 ,11 ,45 
-2010/1/1 0:00,Small Market,Central,一般咖啡,Columbian,20 ,40 ,20 ,60 ,28 ,965 ,34 ,5 ,62 
-2010/1/1 0:00,Small Market,Central,一般咖啡,Decaf Irish Cream,20 ,30 ,20 ,50 ,23 ,623 ,31 ,12 ,54 
-2010/1/1 0:00,Small Market,Central,Espresso,Caffe Mocha,10 ,40 ,30 ,50 ,17 ,777 ,26 ,11 ,43 
-2010/1/1 0:00,Small Market,Central,Espresso,Decaf Espresso,10 ,40 ,30 ,50 ,17 ,777 ,26 ,10 ,43 
-2010/1/1 0:00,Small Market,Central,清凉茶,Chamomile,200 ,280 ,200 ,480 ,234 ,"1,310 ",312 ,202 ,546 
-2010/1/1 0:00,Small Market,Central,清凉茶,Lemon,80 ,120 ,90 ,200 ,95 ,608 ,139 ,86 ,234 
-2010/1/1 0:00,Small Market,Central,普茶,Darjeeling,190 ,210 ,140 ,400 ,228 ,"1,459 ",228 ,141 ,456 
-2010/1/1 0:00,Small Market,Central,普茶,Earl Grey,210 ,270 ,160 ,480 ,245 ,"1,419 ",301 ,175 ,546 
-2010/1/1 0:00,Small Market,Central,一般咖啡,Columbian,90 ,100 ,40 ,190 ,85 ,494 ,105 ,39 ,190 
-2010/1/1 0:00,Small Market,Central,一般咖啡,Decaf Irish Cream,80 ,90 ,50 ,170 ,78 ,965 ,92 ,47 ,170 
-2010/1/1 0:00,Small Market,Central,普茶,Green Tea,20 ,40 ,0 ,60 ,34 ,197 ,42 ,(4),76 
-2010/1/1 0:00,Small Market,Central,Espresso,Caffe Mocha,50 ,90 ,70 ,140 ,50 ,821 ,73 ,48 ,123 
-2010/1/1 0:00,Small Market,Central,Espresso,Decaf Espresso,50 ,80 ,60 ,130 ,46 ,777 ,68 ,45 ,114 
-2010/1/1 0:00,Small Market,Central,清凉茶,Chamomile,30 ,40 ,0 ,70 ,37 ,261 ,53 ,(11),90 
-2010/1/1 0:00,Small Market,Central,清凉茶,Lemon,70 ,10 ,(20),80 ,88 ,525 ,11 ,(39),99 
-2010/1/1 0:00,Small Market,Central,普茶,Darjeeling,30 ,40 ,10 ,70 ,35 ,196 ,47 ,9 ,82 
-2010/1/1 0:00,Small Market,Central,普茶,Earl Grey,20 ,30 ,(10),50 ,29 ,169 ,36 ,(9),65 
-2010/1/1 0:00,Major Market,Central,一般咖啡,Amaretto,60 ,80 ,50 ,140 ,60 ,336 ,80 ,34 ,140 
-2010/1/1 0:00,Major Market,Central,一般咖啡,Columbian,60 ,80 ,50 ,140 ,57 ,364 ,83 ,42 ,140 
-2010/1/1 0:00,Major Market,Central,一般咖啡,Decaf Irish Cream,60 ,90 ,20 ,150 ,63 ,435 ,87 ,0 ,150 
-2010/1/1 0:00,Major Market,Central,普茶,Earl Grey,70 ,100 ,60 ,170 ,84 ,500 ,116 ,67 ,200 
-2010/1/1 0:00,Major Market,Central,Espresso,Decaf Espresso,60 ,90 ,40 ,150 ,58 ,338 ,72 ,16 ,130 
-2010/1/1 0:00,Major Market,Central,Espresso,Caffe Mocha,190 ,210 ,140 ,400 ,170 ,"1,091 ",171 ,99 ,341 
-2010/1/1 0:00,Major Market,Central,清凉茶,Chamomile,20 ,50 ,50 ,70 ,32 ,456 ,48 ,29 ,80 
-2010/1/1 0:00,Major Market,Central,清凉茶,Lemon,20 ,50 ,50 ,70 ,32 ,821 ,48 ,29 ,80 
-2010/1/1 0:00,Major Market,Central,普茶,Darjeeling,70 ,110 ,60 ,180 ,84 ,651 ,126 ,68 ,210 
-2010/1/1 0:00,Small Market,Central,一般咖啡,Amaretto,50 ,70 ,30 ,120 ,54 ,312 ,66 ,13 ,120 
-2010/1/1 0:00,Small Market,Central,一般咖啡,Columbian,80 ,110 ,20 ,190 ,79 ,551 ,111 ,9 ,190 
-2010/1/1 0:00,Small Market,Central,一般咖啡,Decaf Irish Cream,80 ,100 ,60 ,180 ,77 ,432 ,103 ,51 ,180 
-2010/1/1 0:00,Small Market,Central,普茶,Earl Grey,60 ,90 ,10 ,150 ,75 ,522 ,105 ,7 ,180 
-2010/1/1 0:00,Small Market,Central,Espresso,Decaf Espresso,50 ,70 ,50 ,120 ,48 ,623 ,62 ,34 ,110 
-2010/1/1 0:00,Small Market,Central,Espresso,Caffe Mocha,80 ,90 ,50 ,170 ,69 ,965 ,81 ,38 ,150 
-2010/1/1 0:00,Small Market,Central,清凉茶,Chamomile,50 ,100 ,80 ,150 ,67 ,400 ,113 ,70 ,180 
-2010/1/1 0:00,Small Market,Central,清凉茶,Lemon,20 ,50 ,50 ,70 ,33 ,777 ,48 ,28 ,81 
-2010/1/1 0:00,Small Market,Central,普茶,Darjeeling,50 ,80 ,50 ,130 ,61 ,390 ,89 ,47 ,150 
-2010/1/1 0:00,Small Market,East,普茶,Darjeeling,50 ,80 ,60 ,130 ,50 ,821 ,73 ,47 ,123 
-2010/1/1 0:00,Small Market,East,普茶,Green Tea,40 ,60 ,40 ,100 ,38 ,777 ,56 ,35 ,94 
-2010/1/1 0:00,Small Market,East,Espresso,Decaf Espresso,50 ,70 ,40 ,120 ,55 ,312 ,75 ,30 ,130 
-2010/1/1 0:00,Small Market,East,Espresso,Caffe Mocha,70 ,100 ,20 ,170 ,75 ,522 ,105 ,7 ,180 
-2010/1/1 0:00,Small Market,East,一般咖啡,Columbian,110 ,180 ,130 ,290 ,124 ,961 ,186 ,115 ,310 
-2010/1/1 0:00,Small Market,East,清凉茶,Lemon,60 ,80 ,40 ,140 ,85 ,494 ,105 ,40 ,190 
-2010/1/1 0:00,Small Market,East,清凉茶,Mint,50 ,80 ,50 ,130 ,78 ,965 ,92 ,47 ,170 
-2010/1/1 0:00,Major Market,East,普茶,Darjeeling,30 ,50 ,40 ,80 ,32 ,821 ,48 ,28 ,80 
-2010/1/1 0:00,Major Market,East,普茶,Green Tea,30 ,50 ,40 ,80 ,33 ,777 ,48 ,28 ,81 
-2010/1/1 0:00,Major Market,East,Espresso,Decaf Espresso,70 ,100 ,60 ,170 ,77 ,432 ,103 ,50 ,180 
-2010/1/1 0:00,Major Market,East,Espresso,Caffe Mocha,70 ,110 ,30 ,180 ,79 ,551 ,111 ,9 ,190 
-2010/1/1 0:00,Major Market,East,一般咖啡,Decaf Irish Cream,80 ,110 ,70 ,190 ,84 ,500 ,116 ,67 ,200 
-2010/1/1 0:00,Major Market,East,一般咖啡,Columbian,80 ,110 ,70 ,190 ,84 ,651 ,126 ,68 ,210 
-2010/1/1 0:00,Major Market,East,清凉茶,Chamomile,30 ,50 ,30 ,80 ,48 ,623 ,62 ,34 ,110 
-2010/1/1 0:00,Major Market,East,清凉茶,Lemon,40 ,50 ,20 ,90 ,54 ,312 ,66 ,13 ,120 
-2010/1/1 0:00,Major Market,East,清凉茶,Mint,50 ,60 ,40 ,110 ,69 ,965 ,81 ,39 ,150 
-2010/1/1 0:00,Major Market,East,普茶,Darjeeling,30 ,50 ,40 ,80 ,32 ,821 ,48 ,29 ,80 
-2010/1/1 0:00,Major Market,East,普茶,Green Tea,30 ,50 ,40 ,80 ,32 ,456 ,48 ,29 ,80 
-2010/1/1 0:00,Major Market,East,Espresso,Regular Espresso,160 ,170 ,110 ,330 ,170 ,"1,091 ",171 ,100 ,341 
-2010/1/1 0:00,Major Market,East,Espresso,Caffe Mocha,60 ,60 ,(10),120 ,63 ,435 ,63 ,(23),126 
-2010/1/1 0:00,Major Market,East,一般咖啡,Columbian,60 ,400 ,360 ,460 ,72 ,558 ,422 ,367 ,494 
-2010/1/1 0:00,Major Market,East,清凉茶,Lemon,40 ,60 ,30 ,100 ,58 ,338 ,72 ,17 ,130 
-2010/1/1 0:00,Small Market,East,普茶,Darjeeling,10 ,30 ,20 ,40 ,18 ,821 ,27 ,10 ,45 
-2010/1/1 0:00,Small Market,East,普茶,Green Tea,10 ,30 ,20 ,40 ,17 ,777 ,26 ,11 ,43 
-2010/1/1 0:00,Small Market,East,Espresso,Regular Espresso,20 ,40 ,0 ,60 ,29 ,169 ,36 ,(8),65 
-2010/1/1 0:00,Small Market,East,Espresso,Caffe Mocha,30 ,50 ,0 ,80 ,37 ,261 ,53 ,(10),90 
-2010/1/1 0:00,Small Market,East,一般咖啡,Amaretto,30 ,50 ,30 ,80 ,38 ,241 ,55 ,20 ,93 
-2010/1/1 0:00,Small Market,East,一般咖啡,Columbian,40 ,70 ,40 ,110 ,48 ,372 ,72 ,25 ,120 
-2010/1/1 0:00,Small Market,East,清凉茶,Lemon,20 ,30 ,0 ,50 ,34 ,197 ,42 ,(4),76 
-2010/1/1 0:00,Major Market,East,普茶,Darjeeling,100 ,150 ,120 ,250 ,95 ,821 ,139 ,101 ,234 
-2010/1/1 0:00,Major Market,East,普茶,Earl Grey,90 ,140 ,110 ,230 ,89 ,777 ,130 ,94 ,219 
-2010/1/1 0:00,Major Market,East,普茶,Green Tea,50 ,90 ,70 ,140 ,54 ,456 ,80 ,54 ,134 
-2010/1/1 0:00,Major Market,East,Espresso,Regular Espresso,210 ,270 ,200 ,480 ,228 ,"1,459 ",262 ,175 ,490 
-2010/1/1 0:00,Major Market,East,Espresso,Caffe Mocha,100 ,(50),(170),50 ,105 ,725 ,(44),(172),61 
-2010/1/1 0:00,Major Market,East,一般咖啡,Columbian,260 ,380 ,260 ,640 ,271 ,"2,101 ",407 ,262 ,678 
-2010/1/1 0:00,Major Market,East,清凉茶,Lemon,180 ,190 ,100 ,370 ,245 ,"1,419 ",238 ,111 ,483 
-2010/1/1 0:00,Major Market,East,清凉茶,Mint,150 ,(10),(70),140 ,207 ,965 ,(27),(113),180 
-2010/1/1 0:00,Small Market,South,Espresso,Caffe Mocha,50 ,100 ,80 ,150 ,67 ,400 ,113 ,70 ,180 
-2010/1/1 0:00,Small Market,South,Espresso,Decaf Espresso,50 ,70 ,50 ,120 ,61 ,390 ,89 ,48 ,150 
-2010/1/1 0:00,Small Market,South,清凉茶,Chamomile,40 ,60 ,40 ,100 ,49 ,623 ,63 ,35 ,112 
-2010/1/1 0:00,Small Market,South,清凉茶,Lemon,80 ,100 ,40 ,180 ,85 ,494 ,105 ,40 ,190 
-2010/1/1 0:00,Small Market,South,Espresso,Caffe Latte,60 ,90 ,10 ,150 ,75 ,522 ,105 ,8 ,180 
-2010/1/1 0:00,Small Market,South,一般咖啡,Columbian,40 ,60 ,50 ,100 ,34 ,777 ,51 ,30 ,85 
+qq号,性别,年龄,国家,省份,城市,职业,留言数量,日志数量,说说数量,照片数量
+548513664,2,21,中国,浙江,金华,财务/审计/统计,1,0,158,363
+1104403968,2,23,中国,广东,深圳,财务/审计/统计,1,5,34,11
+343926145,2,30,中国,浙江,温州,财务/审计/统计,1,140,25,176
+916341378,1,20,中国,青海,西宁,财务/审计/统计,3,2,316,199
+474425728,2,44,中国,山东,枣庄,财务/审计/统计,4,2,0,76
+895473824,1,21,中国,宁夏,中卫,财务/审计/统计,16,37,74,10
+827035457,1,14,中国,湖南,岳阳,财务/审计/统计,41,10,734,1
+646840833,2,23,中国,湖南,邵阳,财务/审计/统计,41,311,418,605
+416670433,2,26,中国,山西,运城,财务/审计/统计,52,54,208,480
+153623009,2,27,中国,上海,杨浦,财务/审计/统计,52,165,319,1479
+511769760,2,28,中国,北京,朝阳,财务/审计/统计,124,322,382,2292
+623246465,1,26,中国,内蒙古,鄂尔多斯,财务/审计/统计,164,162,456,524
+474762720,2,25,中国,西藏,拉萨,财务/审计/统计,167,42,262,1375

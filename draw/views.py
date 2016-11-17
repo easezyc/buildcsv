@@ -10,23 +10,23 @@ def index(request):
 	
 @csrf_exempt
 def uploadify_script(request):  
-    ret="0"          
-    file = request.FILES.get("Filedata",None)          
-    if file:              
-        if _upload(file):  
-            ret="1"  
-        ret="2"  
-    result = handle_csv()
-    response=HttpResponse(json.dumps(result))  
-    response['Content-Type']="application/json"   
-    return response 
+	ret="0"          
+	file = request.FILES.get("Filedata",None)          
+	if file:              
+		if _upload(file):  
+			result = handle_csv()
+			response=HttpResponse(json.dumps(result))  
+			response['Content-Type']="application/json"
+		else:
+			response=HttpResponse("no")
+	return response 
 	
 def _upload(file):    
-    if file:              
-        path='/upload'  
-        file_name="1.csv"        
-        path_file=os.path.join(path,file_name)  
+    if file:
+        name=file.name[-3:]
         if not file:
+            return False
+        if name != "csv":
             return False
         destination = open(os.path.join(".\\upload",u'2.csv'),'wb+')# 打开特定的文件进行二进制的写操作 
         for chunk in file.chunks():# 分块写入文件  
@@ -35,7 +35,8 @@ def _upload(file):
         return True  
     return False
 	
-def handle_csv():
+'''
+#def handle_csv():
     with open(".\\upload\\2.csv", "r")as csvfile:
         firstline=csvfile.readline()
         keyarr=firstline.split(',')
@@ -49,4 +50,20 @@ def handle_csv():
                     retmp[keyarr[i]]= t
                 i = i +1
             result.append(retmp)
+    return result
+'''
+def handle_csv():
+    with open(".\\upload\\2.csv", "r")as csvfile:
+        firstline=csvfile.readline()
+        keyarr=firstline.split(',')
+        result={}
+        for i in keyarr:
+            result[i]=[]
+        for line in csvfile.readlines():
+            tmparr = line.split(',')
+            i = 0
+            for t in tmparr:
+                if (i < len(keyarr)):
+                    result[keyarr[i]].append(t)
+                i = i +1
     return result
