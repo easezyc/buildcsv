@@ -1,0 +1,1 @@
+用python做后台，采用django框架，异步上传csv文件，进行数据处理，前台用echart制作图表。
