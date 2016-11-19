@@ -12,56 +12,6 @@
     <script src="/static/js/bootstrap.min.js"></script>
 	<script src="/static/js/echarts.min.js"></script>
     <script src="/static/uploadify/jquery.uploadify.js"></script>
-    <script type="text/javascript">
-	var data;
-    var backnews="fail";
-        $(document).ready(function()
-        {
-            $('#uploadify').uploadify( {
-            'swf' : '/static/uploadify/uploadify.swf',//上传按钮的图片，默认是这个flash文件
-            'uploader' : "/add/",//上传所处理的服务器
-            'folder' : '/static/images/users',//上传后，所保存文件的路径
-            'queueID' : 'fileQueue',//上传显示进度条的那个div
-            'buttonText' : '请选择文件',
-            progressData : 'percentage',
-            'auto' : true,
-            'multi' : false,
-            'onUploadSuccess' : function(arg0,data,arg2) {
-						if(data=='no')
-						{
-							alert("请上传csv文件");
-						}
-						else{
-							var jsonData = JSON.parse(data);
-							data=jsonData;
-							console.log(data);
-							giveval(data);
-						}
-                    },
-            'onDisable' : function() {
-                alert('uploadify is disable');
-            },
-            'onError' : function(errorType,errObj) {
-                alert('The error was: ' + errObj.info)
-            }
-        });
-		function giveval(d){
-			data=d;
-			for(var key in data){
-				str="<div class=\"col-xs-12 col-sm-6\"><label><input type=\"checkbox\" name=\"data-type\" value="+key+">"+key+"</label></div>";
-				$("#dataclass").append(str);
-			}
-			$("input[name='data-type']").click(function() {
-				$("input[name='data-type']").attr('disabled', true);
-				if ($("input[name='data-type']:checked").length >= 2) {
-					$("input[name='data-type']:checked").attr('disabled', false);
-				} else {
-					$("input[name='data-type']").attr('disabled', false);
-				}
-			});
-		}
-	});  
-    </script>
     <style>
     	.upload-container{
     		margin-top:100px;
@@ -129,167 +79,21 @@
 					<div class="text-center">
 						<button id="draw" class="btn btn-default">绘图</button>
 					</div>
-					<div class="row data-class" id="dataclass">
+					<div class="row data-class-key" id="dataclasskey">
+						
+					</div>
+					<div class="row data-class-num" id="dataclassnum">
 						
 					</div>
 				</div>
-				<div class="col-sm-8 col-xs-12 col-md-9" id="main" style="width: 600px;height:400px;">
-				
+				<div class="col-sm-8 col-xs-12 col-md-9">
+					<div class="center-block" id="main" style="width: 600px;height:400px;margin-top:150px;">
+					
+					</div>
 				</div>
 			</div>
 		</div>
-		<script type="text/javascript">
-			$(document).ready(function(){
-				$("#draw").click(function(){
-					var phototype=0;
-					if(data){
-						phototype=$('input:radio[name="photo-type"]:checked').val();
-						if(phototype==0){
-							alert("请选择一种要绘制的图标类型");
-						}
-						else if(phototype==1){
-							linechart();
-						}
-						else if(phototype==2){
-							scatterdiagram();
-						}
-						else if(phototype==3){
-							histogram();
-						}
-						else if(phototype==4){
-							pie();
-						}
-						else if(phototype==5){
-							rectangle();
-						}
-						else if(phototype==6){
-							map();
-						}
-					}
-					else{
-						alert("请先上传文件");
-					}
-					return false;
-				});
-			});
-			
-		</script>
-		<script type="text/javascript">
-			function linechart()
-			{
-			
-			}
-		</script>
-		<script type="text/javascript">
-			function scatterdiagram()
-			{
-			
-			}
-		</script>
-		<script type="text/javascript">
-			function histogram()
-			{
-			
-			}
-		</script>
-		<script type="text/javascript">
-			function rectangle()
-			{
-			
-			}
-		</script>
-		<script type="text/javascript">
-			function map()
-			{
-			
-			}
-		</script>
-		<script type="text/javascript">
-			function pie()
-			{
-				var m=new Map();
-				var key = new Set(data.省份);
-				for(x of key)
-				{
-					json={"value":0 , "name":x}
-					m.set(x,json);
-				}
-				var i=0;
-				for(;i<data.省份.length;i++)
-				{
-					m.get(data.省份[i]).value+=parseInt(data.日志数量[i]);
-				}
-				result=new Array();
-				for (var x of key) { // 遍历Map  
-					result.push(m.get(x));  
-				}
-				title="省份-日志数量";
-				console.log(result);
-				option = {
-					backgroundColor: '#2c343c',
-
-					title: {
-						text: title,
-						left: 'center',
-						top: 20,
-						textStyle: {
-							color: '#ccc'
-						}
-					},
-
-					tooltip : {
-						trigger: 'item',
-						formatter: "{a} <br/>{b} : {c} ({d}%)"
-					},
-
-					visualMap: {
-						show: false,
-						min: 80,
-						max: 600,
-						inRange: {
-							colorLightness: [0, 1]
-						}
-					},
-					series : [
-						{
-							name:'访问来源',
-							type:'pie',
-							radius : '55%',
-							center: ['50%', '50%'],
-							data:
-								result
-							.sort(function (a, b) { return a.value - b.value}),
-							roseType: 'angle',
-							label: {
-								normal: {
-									textStyle: {
-										color: 'rgba(255, 255, 255, 0.3)'
-									}
-								}
-							},
-							labelLine: {
-								normal: {
-									lineStyle: {
-										color: 'rgba(255, 255, 255, 0.3)'
-									},
-									smooth: 0.2,
-									length: 10,
-									length2: 20
-								}
-							},
-							itemStyle: {
-								normal: {
-									color: '#c23531',
-									shadowBlur: 200,
-									shadowColor: 'rgba(0, 0, 0, 0.5)'
-								}
-							}
-						}
-					]
-				};
-				var myChart = echarts.init(document.getElementById('main'));
-				myChart.setOption(option);
-			}
-		</script>
+	<script src="/static/js/draw.js"></script>
+	<script src="/static/js/function.js"></script>
   </body>
 </html>

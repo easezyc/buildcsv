@@ -34,32 +34,18 @@ def _upload(file):
         destination.close()  
         return True  
     return False
-	
-'''
-#def handle_csv():
-    with open(".\\upload\\2.csv", "r")as csvfile:
-        firstline=csvfile.readline()
-        keyarr=firstline.split(',')
-        result=[]
-        for line in csvfile.readlines():
-            tmparr = line.split(',')
-            i = 0
-            retmp = {}
-            for t in tmparr:
-                if (i < len(keyarr)):
-                    retmp[keyarr[i]]= t
-                i = i +1
-            result.append(retmp)
-    return result
-'''
+
 def handle_csv():
     with open(".\\upload\\2.csv", "r")as csvfile:
         firstline=csvfile.readline()
-        keyarr=firstline.split(',')
+        print(firstline)
+        firstline=firstline.strip('\n')
+        keyarr=str(firstline).split(',')
         result={}
         for i in keyarr:
             result[i]=[]
         for line in csvfile.readlines():
+            line=line.strip('\n')
             tmparr = line.split(',')
             i = 0
             for t in tmparr:
