@@ -1,0 +1,357 @@
+
+<html class="no-js">
+
+	<head>
+		<meta charset="utf-8"/>
+		<title>折线图</title>
+		
+		<!--[if lt IE 9]>
+			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<link rel="stylesheet" media="all" href="/static/css/style.css"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		
+		
+		
+		<!-- JS -->
+		<script src="/static/js/jquery-1.6.4.min.js"></script>
+		<script src="/static/js/css3-mediaqueries.js"></script>
+		<script src="/static/js/custom.js"></script>
+		<script src="/static/js/tabs.js"></script>
+		<script src="/static/js/tabs.js"></script>
+		<script src="/static/js/echarts.min.js"></script>
+		
+		<!-- Tweet -->
+		<link rel="stylesheet" href="/static/css/jquery.tweet.css" media="all"  /> 
+		<script src="/static/js/tweet/jquery.tweet.js" ></script> 
+		<!-- ENDS Tweet -->
+		
+		<!-- superfish -->
+		<link rel="stylesheet" media="screen" href="/static/css/superfish.css" /> 
+		<script  src="/static/js/superfish-1.4.8/js/hoverIntent.js"></script>
+		<script  src="/static/js/superfish-1.4.8/js/superfish.js"></script>
+		<script  src="/static/js/superfish-1.4.8/js/supersubs.js"></script>
+		<!-- ENDS superfish -->
+		
+		<!-- prettyPhoto -->
+		<script  src="/static/js/prettyPhoto/js/jquery.prettyPhoto.js"></script>
+		<link rel="stylesheet" href="/static/js/prettyPhoto/css/prettyPhoto.css"  media="screen" />
+		<!-- ENDS prettyPhoto -->
+		
+		<!-- poshytip -->
+		<link rel="stylesheet" href="/static/js/poshytip-1.1/src/tip-twitter/tip-twitter.css"  />
+		<link rel="stylesheet" href="/static/js/poshytip-1.1/src/tip-yellowsimple/tip-yellowsimple.css"  />
+		<script  src="/static/js/poshytip-1.1/src/jquery.poshytip.min.js"></script>
+		<!-- ENDS poshytip -->
+		
+		<!-- GOOGLE FONTS -->
+		
+		
+		<!-- Flex Slider -->
+		<link rel="stylesheet" href="/static/css/flexslider.css" >
+		<script src="/static/js/jquery.flexslider-min.js"></script>
+		<!-- ENDS Flex Slider -->
+		
+		<!-- Masonry -->
+		<script src="/static/js/masonry.min.js" ></script>
+		<script src="/static/js/imagesloaded.js" ></script>
+		<!-- ENDS Masonry -->
+		
+		<!-- Less framework -->
+		<link rel="stylesheet" media="all" href="/static/css/lessframework.css"/>
+		
+		<!-- modernizr -->
+		<script src="/static/js/modernizr.js"></script>
+		
+		<!-- SKIN -->
+		<link rel="stylesheet" media="all" href="/static/css/skin.css"/>
+		
+		<link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/uploadify/uploadify.css" rel="stylesheet">
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <script src="/static/js/echarts.js"></script>
+    <script src="/static/uploadify/jquery.uploadify.js"></script>
+		
+
+	</head>
+	
+	<body lang="en">
+	
+		<header>
+			<div class="wrapper clearfix">
+				
+				<div id="logo">
+					<a href="/<a href="/" style="font-size:30px;color:white;font-size:bolder;">主页</a>
+				</div>
+				
+				<!-- nav -->
+				<ul id="nav" class="sf-menu">
+					<li><a href="/linechart/">折线图</a></li>
+					<li><a href="/scatterdiagram/">散点图</a></li>
+					<li><a href="/histogram/">柱状图</a></li>
+					<li><a href="/pie/">饼图</a></li>
+					<li><a href="/rectangle/">矩形树图</a></li>
+					<li><a href="/map/">环状图</a></li>
+				</ul>
+				<!-- ends nav -->
+			</div>
+		</header>
+		 
+
+		
+		<!-- MAIN -->
+		<div id="main">	
+			<div class="wrapper clearfix">
+				
+				
+				<!-- masthead -->
+				<div class="masthead project clearfix">
+					<h1>折线图</h1>
+				</div>
+				<div class='mh-div'></div>
+				<!-- ENDS masthead -->
+				
+				<div class="container">
+			<div class="row">
+				<div class="col-sm-4 col-xs-12 col-md-3">
+					<div class="upload-container row">
+						<div class="col-sm-8 col-sm-offset-2">
+							<input type="file" name="uploadify" id="uploadify"/> 
+						</div>
+					</div>
+					<div class="text-center">
+						<button id="draw" class="btn btn-default">绘图</button>
+					</div>
+					<div class="row data-class-key" id="dataclasskey">
+						
+					</div>
+					<div class="row data-class-num" id="dataclassnum">
+						
+					</div>
+				</div>
+				<div class="col-sm-8 col-xs-12 col-md-9">
+					<div class="center-block" id="mannn" style="min-height:600px;">
+						
+					</div>
+				</div>
+			</div>
+		</div>
+<script>
+	var data;
+	var backnews="fail";
+	$(document).ready(function()
+	{
+		$('#uploadify').uploadify( {
+		'swf' : '/static/uploadify/uploadify.swf',//上传按钮的图片，默认是这个flash文件
+		'uploader' : "/add/",//上传所处理的服务器
+		'folder' : '/static/images/users',//上传后，所保存文件的路径
+		'queueID' : 'fileQueue',//上传显示进度条的那个div
+		'buttonText' : '请选择文件',
+		progressData : 'percentage',
+		'auto' : true,
+		'multi' : false,
+		'onUploadSuccess' : function(arg0,data,arg2) {
+					if(data=='no')
+					{
+						alert("请上传csv文件");
+					}
+					else{
+						var jsonData = JSON.parse(data);
+						data=jsonData;
+						giveval(data);
+					}
+				},
+		'onDisable' : function() {
+			alert('uploadify is disable');
+		},
+		'onError' : function(errorType,errObj) {
+			alert('The error was: ' + errObj.info)
+		}
+	});
+	function giveval(d){
+		data=d;
+		$("#dataclasskey").empty();
+		$("#dataclassnum").empty();
+		str="<div>键：</div>";
+		$("#dataclasskey").append(str);
+		str="<div>值：</div>";
+		$("#dataclassnum").append(str);
+		for(var key in data){
+			if(key.indexOf("#V")>0)
+			{
+				str="<div class=\"col-xs-12 col-sm-6\"><label><input type=\"checkbox\" name=\"data-type-num\" value="+key+">"+key.replace("#V","")+"</label></div>";
+				$("#dataclassnum").append(str);
+			}
+			else{
+				str="<div class=\"col-xs-12 col-sm-6\"><label><input type=\"checkbox\" name=\"data-type-key\" value="+key+">"+key+"</label></div>";
+				$("#dataclasskey").append(str);
+			}
+		}
+	}
+}); 
+$(document).ready(function(){
+	$("#draw").click(function(){
+		var phototype=0;
+		if(data){
+			phototype=$('input:radio[name="photo-type"]:checked').val();
+			if(!($("input[name='data-type-key']:checked").length>=1&&$("input[name='data-type-num']:checked").length>=1)){
+				alert("请选择数据");
+			}
+			else{
+				var key_value=[];
+				var num_value=[];
+				getnum();
+				getkey();
+				function getnum(){  //jquery获取复选框值        
+					$('input[name="data-type-num"]:checked').each(function(){    
+					num_value.push($(this).val());    
+					});    
+				}
+				function getkey(){  //jquery获取复选框值        
+					$('input[name="data-type-key"]:checked').each(function(){    
+					key_value.push($(this).val());    
+					});       
+				}
+				keyjson={};
+				numjson={};
+				keyn=0;
+				numn=0;
+				for(var i=0;i<key_value.length;i++)
+				{
+					keyjson[key_value[i]]=data[key_value[i]];
+					keyn++;
+				}
+				for(var i=0;i<num_value.length;i++)
+				{
+					numjson[num_value[i]]=data[num_value[i]];
+					numn++;
+				}
+				linechart(keyjson,numjson,keyn,numn);
+			}
+		}
+		else{
+			alert("请先上传文件");
+		}
+		return false;
+	});
+}); 
+	</script>
+	<script src="/static/js/function.js"></script>
+
+        		
+	<!--end main>
+        		<!-- related -->
+        	
+				<div class="related-projects">
+					<h4 class="related-heading">更多...</h4>
+					<div class="related-list clearfix">
+						<figure>
+							<a href="/linechart/" class="thumb"><img src="/static/img/dummies/line.png" alt="Alt text" /></a>
+							<a href="single.html" class="heading">折线图</a>
+						</figure>
+						
+						<figure>
+							<a href="/rectangle/" class="thumb"><img src="/static/img/dummies/tree.png" alt="Alt text" /></a>
+							<a href="single.html" class="heading">矩形树图</a>
+						</figure>
+						
+						<figure>
+							<a href="/scatterdiagram/" class="thumb"><img src="/static/img/dummies/point.png" alt="Alt text" /></a>
+							<a href="single.html" class="heading">散点图</a>
+						</figure>
+						
+						<figure>
+							<a href="/map/" class="thumb"><img src="/static/img/dummies/map.png" alt="Alt text" /></a>
+							<a href="single.html" class="heading">环状图</a>
+						</figure>
+						
+					</div>
+				</div>
+				<!-- ENDS related -->
+					
+
+			<!-- Fold image -->
+			<div id="fold"></div>
+			</div>
+			
+		</div>
+		<!-- ENDS MAIN -->
+		
+		
+	<footer>	
+			
+			<div class="wrapper clearfix">
+				
+				<!-- widgets -->
+				<ul  class="widget-cols clearfix">
+					<li class="first-col">
+						
+						<div class="widget-block">
+							<div class="recent-post clearfix">
+								<a href="/linechart/" class="thumb"><img height=54 width=54 src="/static/img/dummies/line.png" alt="Post" /></a>
+								<div class="post-head">
+									<a href="/linechart/">折线图</a>
+								</div>
+							</div>
+							<div class="recent-post clearfix">
+								<a href="/scatterdiagram/" class="thumb"><img height=54 width=54 src="/static/img/dummies/point.png" alt="Post" /></a>
+								<div class="post-head">
+									<a href="/scatterdiagram/">散点图</a>
+								</div>
+							</div>
+						</div>
+					</li>
+					
+					<li class="first-col">
+						
+						<div class="widget-block">
+							<div class="recent-post clearfix">
+								<a href="/pie/" class="thumb"><img height=54 width=54 src="/static/img/dummies/circle.png" alt="Post" /></a>
+								<div class="post-head">
+									<a href="/pie/">饼图</a>
+								</div>
+							</div>
+							<div class="recent-post clearfix">
+								<a href="/rectangle/" class="thumb"><img height=54 width=54 src="/static/img/dummies/tree.png" alt="Post" /></a>
+								<div class="post-head">
+									<a href="/rectangle/">矩形树图</a>
+								</div>
+							</div>
+						</div>
+					</li>
+					
+					<li class="first-col">
+						
+						<div class="widget-block">
+							<div class="recent-post clearfix">
+								<a href="/histogram/" class="thumb"><img height=54 width=54 src="/static/img/dummies/rec.png" alt="Post" /></a>
+								<div class="post-head">
+									<a href="/histogram/">柱形图</a>
+								</div>
+							</div>
+							<div class="recent-post clearfix">
+								<a href="/map/" class="thumb"><img height=54 width=54 src="/static/img/dummies/map.png" alt="Post" /></a>
+								<div class="post-head">
+									<a href="/map/">环状图</a>
+								</div>
+							</div>
+						</div>
+					</li>
+					
+					<li class="second-col">
+						
+						<div class="widget-block">
+							<h4>联系我们</h4>
+							<p><a href="#/" >telephont</a> 12345678</p>
+						</div>
+						
+					</li>
+			</div>
+		</footer>
+		
+		
+			
+	</body>
+	
+</html>

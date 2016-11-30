@@ -54,28 +54,11 @@ $(document).ready(function(){
 				alert("请选择数据");
 			}
 			else{
-				if(phototype==0||phototype==undefined){
-					alert("请选择一种要绘制的图标类型");
-				}
-				else if(phototype==1){
-					linechart();
-				}
-				else if(phototype==2){
-					scatterdiagram();
-				}
-				else if(phototype==3){
-					histogram();
-				}
-				else if(phototype==4){
+				
 					pie();
-				}
-				else if(phototype==5){
-					rectangle();
-				}
-				else if(phototype==6){
-					map();
-				}
 			}
+				
+			
 		}
 		else{
 			alert("请先上传文件");

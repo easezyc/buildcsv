@@ -120,8 +120,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/dev/howto/static-files/
 
 STATIC_URL = '/static/'
+ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'collected_static')
+STATIC_PATH = os.path.join(BASE_DIR, 'collected_static')
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, "common_static"),
+
+    os.path.join(BASE_DIR, '../static/').replace('\\','/'),
 )

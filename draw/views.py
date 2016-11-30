@@ -7,6 +7,24 @@ import json
 # Create your views here.
 def index(request):
 	return render(request,'index.html')
+
+def pie(request):
+	return render(request,'picture/pie.html')
+	
+def rectangle(request):
+	return render(request,'picture/rectangle.html')
+	
+def scatterdiagram(request):
+	return render(request,'picture/scatterdiagram.html')
+	
+def linechart(request):
+	return render(request,'picture/linechart.html')
+
+def histogram(request):
+	return render(request,'picture/histogram.html')
+	
+def map(request):
+	return render(request,'picture/map.html')
 	
 @csrf_exempt
 def uploadify_script(request):  

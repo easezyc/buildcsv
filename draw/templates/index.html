@@ -1,99 +1,212 @@
+<!doctype html>
+<html class="no-js">
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>图表</title>
-	{% load staticfiles %}
-    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/static/uploadify/uploadify.css" rel="stylesheet">
-    <script src="/static/js/jquery.min.js"></script>
-    <script src="/static/js/bootstrap.min.js"></script>
-	<script src="/static/js/echarts.min.js"></script>
-    <script src="/static/uploadify/jquery.uploadify.js"></script>
-    <style>
-    	.upload-container{
-    		margin-top:100px;
-			min-height:100px;
-    	}
-    	.thumbnail img{
-    	height:200px;
-    	}
-		#main{
-			width:100%;
-			height:auto;
-		}
-    </style>
-  </head>
-  
-	<body>
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-4 col-xs-12 col-md-3">
-					<div class="upload-container row">
-						<div class="col-sm-8 col-sm-offset-2">
-							<span>选择表格</span>
-							<input type="file" name="uploadify" id="uploadify"/> 
-						</div>
-						<div id="fileQueue"></div>
-					</div>
-					<div class="row photo-type radio">
-						<div class="col-xs-12 col-sm-6">
-							<label>
-								<input type="radio" name="photo-type" id="line-chart" value="1">
-								折线图
-							</label>
-						</div>
-						<div class="col-xs-12 col-sm-6">
-							<label>
-								<input type="radio" name="photo-type" id="scatter-diagram" value="2">
-								散点图
-							</label>
-						</div>
-						<div class="col-xs-12 col-sm-6">
-							<label>
-								<input type="radio" name="photo-type" id="histogram" value="3">
-								柱状图
-							</label>
-						</div>
-						<div class="col-xs-12 col-sm-6">
-							<label>
-								<input type="radio" name="photo-type" id="pie" value="4">
-								饼图
-							</label>
-						</div>
-						<div class="col-xs-12 col-sm-6">
-							<label>
-								<input type="radio" name="photo-type" id="rectangle" value="5">
-								矩形树图
-							</label>
-						</div>
-						<div class="col-xs-12 col-sm-6">
-							<label>
-								<input type="radio" name="photo-type" id="map"  value="6">
-								地图
-							</label>
-						</div>
-					</div>
-					<div class="text-center">
-						<button id="draw" class="btn btn-default">绘图</button>
-					</div>
-					<div class="row data-class-key" id="dataclasskey">
-						
-					</div>
-					<div class="row data-class-num" id="dataclassnum">
-						
-					</div>
+	<head>
+		<meta charset="utf-8"/>
+		<title>数据可视化</title>
+		
+		<!--[if lt IE 9]>
+			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<link rel="stylesheet" media="all" href="/static/css/style.css"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		
+		
+		
+		<!-- JS -->
+		<script src="/static/js/jquery-1.6.4.min.js"></script>
+		<script src="/static/js/css3-mediaqueries.js"></script>
+		<script src="/static/js/custom.js"></script>
+		<script src="/static/js/tabs.js"></script>
+		<script src="/static/js/tabs.js"></script>
+		
+		
+		<!-- Tweet -->
+		<link rel="stylesheet" href="/static/css/jquery.tweet.css" media="all"  /> 
+		<script src="/static/js/tweet/jquery.tweet.js" ></script> 
+		<!-- ENDS Tweet -->
+		
+		<!-- superfish -->
+		<link rel="stylesheet" media="screen" href="/static/css/superfish.css" /> 
+		<script  src="/static/js/superfish-1.4.8/js/hoverIntent.js"></script>
+		<script  src="/static/js/superfish-1.4.8/js/superfish.js"></script>
+		<script  src="/static/js/superfish-1.4.8/js/supersubs.js"></script>
+		<!-- ENDS superfish -->
+		
+		<!-- prettyPhoto -->
+		<script  src="/static/js/prettyPhoto/js/jquery.prettyPhoto.js"></script>
+		<link rel="stylesheet" href="/static/js/prettyPhoto/css/prettyPhoto.css"  media="screen" />
+		<!-- ENDS prettyPhoto -->
+		
+		<!-- poshytip -->
+		<link rel="stylesheet" href="/static/js/poshytip-1.1/src/tip-twitter/tip-twitter.css"  />
+		<link rel="stylesheet" href="/static/js/poshytip-1.1/src/tip-yellowsimple/tip-yellowsimple.css"  />
+		<script  src="/static/js/poshytip-1.1/src/jquery.poshytip.min.js"></script>
+		<!-- ENDS poshytip -->
+		
+		<!-- GOOGLE FONTS -->
+		
+		
+		<!-- Flex Slider -->
+		<link rel="stylesheet" href="/static/css/flexslider.css" >
+		<script src="/static/js/jquery.flexslider-min.js"></script>
+		<!-- ENDS Flex Slider -->
+		
+		<!-- Masonry -->
+		<script src="/static/js/masonry.min.js" ></script>
+		<script src="/static/js/imagesloaded.js" ></script>
+		<!-- ENDS Masonry -->
+		
+		<!-- Less framework -->
+		<link rel="stylesheet" media="all" href="/static/css/lessframework.css"/>
+		
+		<!-- modernizr -->
+		<script src="/static/js/modernizr.js"></script>
+		
+		<!-- SKIN -->
+		<link rel="stylesheet" media="all" href="/static/css/skin.css"/>
+		
+		
+		
+
+	</head>
+	
+	<body lang="en">
+	
+		<header>
+			<div class="wrapper clearfix">
+				
+				<div id="logo">
+					<a href="/" style="font-size:30px;color:white;font-size:bolder;">主页</a>
 				</div>
-				<div class="col-sm-8 col-xs-12 col-md-9">
-					<div class="center-block" id="main" style="width: 600px;height:400px;margin-top:150px;">
-					
-					</div>
-				</div>
+				
+				<!-- nav -->
+				<ul id="nav" class="sf-menu">
+					<li><a href="/linechart/">折线图</a></li>
+					<li><a href="/scatterdiagram/">散点图</a></li>
+					<li><a href="/histogram/">柱状图</a></li>
+					<li><a href="/pie/">饼图</a></li>
+					<li><a href="/rectangle/">矩形树图</a></li>
+					<li><a href="/map/">环状图</a></li>
+				</ul>
+				<!-- ends nav -->
+	
+				
 			</div>
+		</header>
+		
+		
+		
+		<!-- MAIN -->
+		<div id="main">	
+			<div class="wrapper clearfix">
+				
+				<!-- masthead -->
+				<div class="masthead clearfix">
+					<h1>数据可视化</h1>
+				</div>
+				<div class='mh-div'></div>
+				<!-- ENDS masthead -->
+				
+				
+				
+				<!-- portfolio list -->
+	        	<div class="featured portfolio-list clearfix">
+	        		
+	        		<figure>
+        				<a href="/linechart/" class="thumb">
+        					<img src="/static/img/dummies/line.png" alt="Alt text" />
+        				</a>
+	        			<figcaption>折线图</figcaption>
+	        		</figure>
+	        		
+	        		<figure>
+        				<a href="/scatterdiagram/" class="thumb">
+        					<img src="/static/img/dummies/point.png" alt="Alt text" />
+        				</a>
+	        			<figcaption>散点图</figcaption>
+	        		</figure>
+        		
+	        		<figure>
+        				<a href="/pie/" class="thumb">
+        					<img src="/static/img/dummies/circle.png" alt="Alt text" />
+        				</a>
+	        			<figcaption>饼图</figcaption>
+	        		</figure>
+	        		
+	        		<figure>
+        				<a href="/rectangle/" class="thumb">
+        					<img src="/static/img/dummies/tree.png" alt="Alt text" />
+        				</a>
+	        			<figcaption>矩形树图</figcaption>
+	        		</figure>
+
+					<figure>
+        				<a href="/histogram/" class="thumb">
+        					<img src="/static/img/dummies/rec.png" alt="Alt text" />
+        				</a>
+	        			<figcaption>柱形图</figcaption>
+	        		</figure>
+	        		
+	        		<figure>
+        				<a href="/map/" class="thumb">
+        					<img src="/static/img/dummies/map.png" alt="Alt text" />
+        				</a>
+	        			<figcaption>环状图</figcaption>
+	        		</figure>
+	        		
+	        	
+
+				<!--  <figure>
+        				<a href="project.html" class="thumb"></a>
+        			  <figcaption></figcaption>
+					</figure>
+
+	        		
+	        		<figure>
+	        		  <figcaption>Pellentesque habitant morbi</figcaption>
+        		  </figure>
+				   		-->
+	        	</div>
+				
+	        	<!-- ENDS featured -->
+	        	
+	        	
+	        	<!-- pager -->
+	        	<!-- ENDS pager -->
+
+        	
+        	
+
+			<!-- Fold image -->
+			<div id="fold"></div>
+			</div>
+			
 		</div>
-	<script src="/static/js/draw.js"></script>
-	<script src="/static/js/function.js"></script>
-  </body>
+		<!-- ENDS MAIN -->
+		
+		
+		<footer>	
+			
+			<div class="wrapper clearfix">
+				
+				<!-- widgets -->
+				<ul  class="widget-cols clearfix">
+					
+					
+					<li class="second-col">
+						
+						<div class="widget-block">
+							<h4>联系我们</h4>
+							<p><a href="#/" >Template Creme</a> 12345678</p>
+						</div>
+						
+					</li>
+
+			</div>
+		</footer>
+		
+			
+	</body>
+	
 </html>
