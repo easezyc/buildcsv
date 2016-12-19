@@ -4,6 +4,7 @@ from django.views.decorators.csrf import csrf_exempt
 import os
 import csv
 import json
+import xlrd
 # Create your views here.
 def index(request):
 	return render(request,'index.html')
@@ -41,21 +42,36 @@ def uploadify_script(request):
 	
 def _upload(file):    
     if file:
-        name=file.name[-3:]
+        name = file.name.split('.')[1]
         if not file:
             return False
-        if name != "csv":
+        print(name)
+        if name == "csv" or  name == "xlsx" or name=="xls" :
+            destination = open(os.path.join(".\\upload",u'2.'+name),'wb+')# 打开特定的文件进行二进制的写操作
+            for chunk in file.chunks():# 分块写入文件
+                destination.write(chunk)
+            destination.close()
+            if name == "xlsx" or name=="xls" :
+                xlsx2csv(name)
+            return True
+        else:
             return False
-        destination = open(os.path.join(".\\upload",u'2.csv'),'wb+')# 打开特定的文件进行二进制的写操作 
-        for chunk in file.chunks():# 分块写入文件  
-            destination.write(chunk)  
-        destination.close()  
-        return True  
-    return False
+
+def xlsx2csv(name):
+    wb = xlrd.open_workbook(".\\upload\\2."+name)
+    sh = wb.sheet_by_index(0)
+    your_csv_file = open('.\\upload\\2.csv', 'w', newline='')
+    wr = csv.writer(your_csv_file, quoting=csv.QUOTE_ALL)
+    rownum = 0
+    while rownum < sh.nrows:
+        print(sh.row_values(rownum))
+        wr.writerow(sh.row_values(rownum))
+        rownum = rownum + 1
+    your_csv_file.close()
 
 def handle_csv():
     with open(".\\upload\\2.csv", "r")as csvfile:
-        firstline=csvfile.readline()
+        firstline= csvfile.readline().replace("\"","")
         print(firstline)
         firstline=firstline.strip('\n')
         keyarr=str(firstline).split(',')
@@ -63,6 +79,7 @@ def handle_csv():
         for i in keyarr:
             result[i]=[]
         for line in csvfile.readlines():
+            line = line.replace("\"","")
             line=line.strip('\n')
             tmparr = line.split(',')
             i = 0

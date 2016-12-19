@@ -82,7 +82,7 @@
 			<div class="wrapper clearfix">
 				
 				<div id="logo">
-					<a href="/<a href="/" style="font-size:30px;color:white;font-size:bolder;">主页</a>
+					<a href="/" style="font-size:30px;color:white;font-size:bolder;">主页</a>
 				</div>
 				
 				<!-- nav -->
@@ -154,7 +154,7 @@
 		'onUploadSuccess' : function(arg0,data,arg2) {
 					if(data=='no')
 					{
-						alert("请上传csv文件");
+						alert("上传文件类型不符！");
 					}
 					else{
 						var jsonData = JSON.parse(data);
@@ -195,10 +195,6 @@ $(document).ready(function(){
 		var phototype=0;
 		if(data){
 			phototype=$('input:radio[name="photo-type"]:checked').val();
-			if(!($("input[name='data-type-key']:checked").length>=1&&$("input[name='data-type-num']:checked").length>=1)){
-				alert("请选择数据");
-			}
-			else{
 				var key_value=[];
 				var num_value=[];
 				getnum();
@@ -228,7 +224,7 @@ $(document).ready(function(){
 					numn++;
 				}
 				scatterdiagram(keyjson,numjson,keyn,numn);
-			}
+			
 		}
 		else{
 			alert("请先上传文件");
